@@ -20,7 +20,7 @@ const App = () => {
   const handleBad = () => {
     setBad(bad + 1)
   }
-  
+
   const all = good + neutral + bad
   const percentage = Math.round((good / all) * 100)
 
@@ -31,7 +31,7 @@ const App = () => {
         <Button handleClick={handleNeutral} text="Neutral" />
         <Button handleClick={handleBad} text="Bad" />
       <h1>Statistics</h1>
-      <Statistics  good={good} neutral={neutral} bad={bad} all={all} percentage={percentage}/>
+      <Statistics  good={good} neutral={neutral} bad={bad} all={all} percentage={percentage} />
         
     </div>
   )
