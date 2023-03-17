@@ -1,6 +1,8 @@
 import { useState } from 'react'
 import Button from './components/Button'
 
+// toimii, mutta siirrä toiminnallisuuksia komponenteiksi jos jaksat
+
 const App = () => {
   const anecdotes = [
     'If it hurts, do it more often.',
@@ -12,19 +14,41 @@ const App = () => {
     'Programming without an extremely heavy use of console.log is same as if a doctor would refuse to use x-rays or blood tests when dianosing patients.',
     'The only way to go fast, is to go well.'
   ]
-   
-const [selected, setSelected] = useState(0)
 
+
+const [selected, setSelected] = useState(0)
+const [votes, setVotes] = useState(Array(8).fill(0))
 
 const handleNextAnecdote = () => {
   setSelected(Math.floor(Math.random() * anecdotes.length))
 }
 
+const handleVoteAnecdote = () => { 
+  const copyOfVotes = [...votes];
+  copyOfVotes[selected] += 1;
+  setVotes(copyOfVotes);
+}
+
+
+// voittaja-anekdootti, tee tästä komponentti
+ 
+const indexOfHighestVote = votes.indexOf(Math.max(...votes))
+
+const votedBest = anecdotes[indexOfHighestVote]
+
+
 
 return (
   <div>
+    <h1>Vote for the anecdote</h1>
     <p>{anecdotes[selected]}</p>
+    <p>Votes: {votes[selected]}</p>
       <Button handleClick={handleNextAnecdote} text="Next Anecdote" />
+      <Button handleClick={handleVoteAnecdote} text="Vote" />
+    
+    <h1>Winner Anecdote</h1>
+    <p>{votedBest}</p>
+    <p>Votes: {votes[indexOfHighestVote]}</p>
       
   </div>
 )
