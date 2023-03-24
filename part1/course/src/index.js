@@ -1,23 +1,29 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
-//import './index.css';
 import App from './App';
 
-// 1-1.2
+// part2
 
-const root = ReactDOM.createRoot(document.getElementById('root'));
-root.render(<App />);
+const notes = [
+    {
+      id: 1,
+      content: 'HTML is easy',
+      important: true
+    },
+    {
+      id: 2,
+      content: 'Browser can execute only JavaScript',
+      important: false
+    },
+    {
+      id: 3,
+      content: 'GET and POST are the most important methods of HTTP protocol',
+      important: true
+    }
+  ]
 
-// // 1.3-->
+  ReactDOM.createRoot(document.getElementById('root')).render(
+    <App notes={notes} />
+  )
 
-// import React from 'react'
-// import ReactDOM from 'react-dom/client'
-
-// import App from './App'
-
-// let counter = 1
-
-// ReactDOM.createRoot(document.getElementById('root')).render(
-//     <App counter={counter} />
-//   )
 
